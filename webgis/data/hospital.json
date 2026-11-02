@@ -1,0 +1,650 @@
+{
+  "type" : "FeatureCollection",
+  "features" : [
+    {
+      "type" : "Feature",
+      "id" : 1,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.997641651982235,
+          36.323598087470771
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 1,
+        "name" : "بیمارستان ولایت"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 2,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.018907752536506,
+          36.280470463572897
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 2,
+        "name" : "بیمارستان شهید رجایی"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 3,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.005135103833084,
+          36.274875474540977
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 3,
+        "name" : "بیمارستان بوعلی سینا"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 4,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.024867972852405,
+          36.266853578007442
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 4,
+        "name" : "بیمارستان پاستور"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 5,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.022069729839245,
+          36.286539998955618
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 5,
+        "name" : "بیمارستان ۵۵۳ ارتش"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 6,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.007555945616275,
+          36.280318999285385
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 6,
+        "name" : "بیمارستان دهخدا"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 7,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.025036277557831,
+          36.275890910730311
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 7,
+        "name" : "بیمارستان قدس"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 8,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.006910698637228,
+          36.275044395265297
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 8,
+        "name" : " "
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 9,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.022688331180461,
+          36.30426579200838
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 9,
+        "name" : "بیمارستان زکریای رازی"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 10,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.005621674732367,
+          36.271788697667773
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 10,
+        "name" : "مرکز فوق تخصصی زنان و نازایی رویانا"
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 11,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.003283329625674,
+          36.291997217968458
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 11,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 12,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.021325002397759,
+          36.30266367300095
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 12,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 13,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.021325002397759,
+          36.30266367300095
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 13,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 14,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.011624999560183,
+          36.28796110766865
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 14,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 15,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.014994439672876,
+          36.295841667516356
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 15,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 16,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.016916670071225,
+          36.307449997700019
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 16,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 17,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.070277780309084,
+          36.297222218069862
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 17,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 18,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.071666669661568,
+          36.28805555761727
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 18,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 19,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.029913889675072,
+          36.348611107944123
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 19,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 20,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.993674998595679,
+          36.27548603818525
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 20,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 21,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.989583331218455,
+          36.264638764758047
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 21,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 22,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.99410000054803,
+          36.260005557588272
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 22,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 23,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.999386117288282,
+          36.276405354301289
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 23,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 24,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.001763890420477,
+          36.289480557384707
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 24,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 25,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.998580557683681,
+          36.30264992578816
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 25,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 26,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.000083330432915,
+          36.309716667482007
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 26,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 27,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.017972227821929,
+          36.268063714667846
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 27,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 28,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.02252222012396,
+          36.287197218080223
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 28,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 29,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.016627780297767,
+          36.278905557311418
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 29,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 30,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.02442499949376,
+          36.275083327984248
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 30,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 31,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.006313889756541,
+          36.274877660824131
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 31,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 32,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.001083330062158,
+          36.272116667916237
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 32,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 33,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.005411110260582,
+          36.267716667719128
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 33,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 34,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.996855554698413,
+          36.268338712510285
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 34,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 35,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.996883329851983,
+          36.271722217567742
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 35,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 36,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.00364166925317,
+          36.259616650075145
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 36,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 37,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.005888889509436,
+          36.251316667398896
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 37,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 38,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          50.015327779499728,
+          36.179169437742758
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 38,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 39,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.954444440155271,
+          36.237222217619149
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 39,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 40,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.948027780206132,
+          36.308758328022293
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 40,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 41,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.948027780206132,
+          36.308758328022293
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 41,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 42,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.946897219620723,
+          36.309413887342203
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 42,
+        "name" : null
+      }
+    },
+    {
+      "type" : "Feature",
+      "id" : 43,
+      "geometry" : {
+        "type" : "Point",
+        "coordinates" : [
+          49.989788890362945,
+          36.312336107368196
+        ]
+      },
+      "properties" : {
+        "OBJECTID" : 43,
+        "name" : null
+      }
+    }
+  ]
+}

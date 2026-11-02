@@ -1,0 +1,11 @@
+{
+  "name": "qazvin-urban-decision-support-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Build tooling for the Qazvin Urban Decision Support WebGIS frontend.",
+  "scripts": {
+    "build": "node scripts/build_frontend.mjs",
+    "check": "node scripts/check_frontend.mjs"
+  }
+}

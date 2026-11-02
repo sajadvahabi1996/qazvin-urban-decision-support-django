@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8fafc" />
+  <meta name="description" content="سامانه تصمیم‌یار شهری قزوین برای تحلیل دسترسی حمل‌ونقل، پایش مشکلات شهری و بررسی شاخص‌های مکانی محلات." />
+  <title>سامانه تصمیم‌یار شهری قزوین</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.fullscreen@1.6.0/Control.FullScreen.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="{% static 'webgis/css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'webgis/css/neighborhood-search.css' %}" />
+  <link rel="stylesheet" href="{% static 'webgis/css/workbench.css' %}" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3 28 10v12L16 29 4 22V10Z"/><path d="M8 13.5 16 9l8 4.5v5L16 23l-8-4.5Z"/><circle cx="16" cy="16" r="3"/></svg></div>
+        <div class="brand-text">
+          <h1 class="title">سامانه تصمیم‌یار شهری قزوین</h1>
+          <p class="subtitle">تحلیل دسترسی حمل‌ونقل، پایش مشکلات شهری و تحلیل مکانی محلات</p>
+        </div>
+      </div>
+      <div class="header-tools">
+        <label class="header-search" for="header-neighborhood-search"><span aria-hidden="true">⌕</span><input id="header-neighborhood-search" type="search" placeholder="جست‌وجوی محله یا محدوده…" autocomplete="off" /><kbd>GIS</kbd></label>
+        <div class="system-state"><span class="state-dot"></span><span>سامانه مکانی</span><span class="header-divider"></span><span id="header-status">در حال بارگذاری داده‌ها</span></div>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="panel layer-panel" aria-label="جست‌وجو و اطلاعات لایه‌ها">
+        <section class="card neighborhood-search-card" id="neighborhood-search-card">
+          <div class="card-heading"><div><span class="eyebrow">NAVIGATION</span><h2>جست‌وجوی محله</h2></div><span class="heading-icon">⌕</span></div>
+          <p>نام محله را جست‌وجو کنید تا محدوده آن روی نقشه مشخص شود.</p>
+          <div class="neighborhood-search-row">
+            <input id="neighborhood-search-input" type="text" placeholder="مثلاً امامزاده حسین" autocomplete="off" />
+            <button id="neighborhood-search-btn" type="button">نمایش</button>
+          </div>
+          <div class="neighborhood-hint">با کلیک داخل کادر، فهرست محلات موجود نمایش داده می‌شود.</div>
+          <div id="neighborhood-results" class="neighborhood-results"></div>
+        </section>
+
+        <section class="card">
+          <div class="card-heading"><div><span class="eyebrow">DATA INVENTORY</span><h2>آمار داده‌های بارگذاری‌شده</h2></div><span class="heading-icon">▦</span></div>
+          <div class="stats stats-grid">
+            <div class="stat"><span class="stat-mark roads-mark">↗</span><div><div class="k">شبکه معابر</div><div class="v" id="stat-roads">—</div></div></div>
+            <div class="stat"><span class="stat-mark bus-mark">▣</span><div><div class="k">ایستگاه اتوبوس</div><div class="v" id="stat-bus">—</div></div></div>
+            <div class="stat"><span class="stat-mark taxi-mark">▰</span><div><div class="k">ایستگاه تاکسی</div><div class="v" id="stat-taxi">—</div></div></div>
+            <div class="stat"><span class="stat-mark problem-mark">●</span><div><div class="k">گزارش مشکل شهری</div><div class="v" id="stat-problems">—</div></div></div>
+            <div class="stat"><span class="stat-mark health-mark">✚</span><div><div class="k">مرکز درمانی</div><div class="v" id="stat-hospitals">—</div></div></div>
+            <div class="stat"><span class="stat-mark neighborhood-mark">⌗</span><div><div class="k">محله دارای شاخص OD</div><div class="v" id="stat-od-priority">—</div></div></div>
+          </div>
+          <p class="data-note">شمارش بر اساس رکوردهای موجود در فایل‌های داده پروژه است.</p>
+        </section>
+
+        <section class="card">
+          <div class="card-heading"><div><span class="eyebrow">PROBLEM MONITORING</span><h2>فیلتر مشکلات شهری</h2></div><span class="heading-icon">⌁</span></div>
+          <p>یک دسته را برای محدودکردن نقاط روی نقشه انتخاب کنید.</p>
+          <div class="filter-actions">
+            <button class="small-btn" id="btn-all-problems" type="button">نمایش همه</button>
+            <button class="small-btn secondary-btn" id="btn-hide-problems" type="button">خاموش / روشن</button>
+          </div>
+          <div class="category-list" id="category-list"><p>در حال بارگذاری دسته‌ها…</p></div>
+        </section>
+
+        <section class="card system-card">
+          <div class="card-heading"><div><span class="eyebrow">SERVICE STATUS</span><h2>وضعیت سامانه</h2></div><span class="status-symbol">✓</span></div>
+          <p id="sys-msg" role="status" aria-live="polite">در حال آماده‌سازی…</p>
+          <div class="system-footnote">منبع داده: فایل‌های مکانی همراه پروژه</div>
+        </section>
+      </aside>
+
+      <section class="mapwrap" aria-label="نقشه تعاملی قزوین">
+        <div class="mapbar mapbar-compact">
+          <button class="btn" id="btn-home" type="button" title="بازگشت به محدوده اولیه">⌂ <span>محدوده اصلی</span></button>
+          <button class="btn" id="btn-locate" type="button" title="نمایش موقعیت من">◎ <span>موقعیت من</span></button>
+          <button class="btn" id="btn-clear" type="button" title="پاک‌کردن تحلیل‌های موقت">↺ <span>پاک‌کردن تحلیل</span></button>
+        </div>
+        <div class="loader" id="loader" aria-live="polite"><div class="box"><span class="spinner"></span> در حال بارگذاری لایه‌ها…</div></div>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        <div id="map"></div>
+        <div class="map-attribution-note">نقشه پایه: OpenStreetMap</div>
+      </section>
+
+      <aside class="analysis-panel" aria-label="ابزارهای تحلیل و خروجی">
+        <section class="card analysis-card">
+          <div class="card-heading"><div><span class="eyebrow">SPATIAL TOOLS</span><h2>ابزارهای تحلیل مکانی</h2></div><span class="heading-icon">⌘</span></div>
+          <p>ابزار را انتخاب کنید؛ نتیجه روی نقشه نمایش داده می‌شود.</p>
+          <div class="tool-grid">
+            <button class="tool-button" id="btn-bus-coverage" type="button"><span class="tool-icon bus-mark">▣</span><span><strong>پوشش اتوبوس</strong><small>شعاع ۳۰۰ متر</small></span></button>
+            <button class="tool-button" id="btn-taxi-coverage" type="button"><span class="tool-icon taxi-mark">▰</span><span><strong>پوشش تاکسی</strong><small>شعاع ۵۰۰ متر</small></span></button>
+            <button class="tool-button" id="btn-heat" type="button"><span class="tool-icon bus-mark">▤</span><span><strong>تراکم اتوبوس</strong><small>Heatmap</small></span></button>
+            <button class="tool-button" id="btn-problem-heat" type="button"><span class="tool-icon problem-mark">▤</span><span><strong>تراکم مشکلات</strong><small>بر اساس نقاط ثبت‌شده</small></span></button>
+            <button class="tool-button landuse-tool" id="btn-landuse" type="button"><span class="tool-icon neighborhood-mark">▧</span><span><strong>کاربری اراضی</strong><small>روشن / خاموش کردن لایه</small></span></button>
+            <button class="tool-button twin-toggle-btn" id="btn-digital-twin" type="button"><span class="tool-icon scenario-mark">◈</span><span><strong>سناریوی اقدام</strong><small>قواعد تصمیم‌یار موجود</small></span></button>
+          </div>
+        </section>
+
+        <section class="card reports-card">
+          <div class="card-heading"><div><span class="eyebrow">REPORTING</span><h2>گزارش و خروجی</h2></div><span class="heading-icon">⇩</span></div>
+          <label class="field-label" for="excel-dataset">داده موردنظر برای خروجی Excel</label>
+          <select id="excel-dataset" class="workbench-select">
+            <option value="all">همه لایه‌ها (فایل چندبرگی)</option>
+            <option value="roads">شبکه معابر</option>
+            <option value="bus">ایستگاه‌های اتوبوس</option>
+            <option value="taxi">ایستگاه‌های تاکسی</option>
+            <option value="fuel">جایگاه‌های سوخت</option>
+            <option value="hospitals">مراکز درمانی</option>
+            <option value="problems">گزارش‌های مشکلات شهری</option>
+            <option value="landuse">کاربری اراضی</option>
+            <option value="od-priority">شاخص اولویت محلات</option>
+            <option value="neighborhoods">محدوده محلات</option>
+          </select>
+          <button id="btn-export-excel" class="primary-action" type="button"><span>⇩</span> دریافت فایل Excel (.xlsx)</button>
+          <div class="divider-line"></div>
+          <label class="field-label" for="chart-type">ساخت نمودار از داده‌های موجود</label>
+          <select id="chart-type" class="workbench-select">
+            <option value="problem-categories">تعداد گزارش‌ها به تفکیک دسته</option>
+            <option value="od-pressure">شاخص نرمال‌شده OD محلات</option>
+            <option value="od-access-time">زمان دسترسی محلات</option>
+            <option value="dataset-counts">تعداد رکورد هر لایه</option>
+          </select>
+          <div class="chart-actions">
+            <button id="btn-build-chart" class="secondary-action" type="button">ساخت نمودار</button>
+            <button id="btn-download-chart" class="icon-action" type="button" disabled title="دانلود نمودار SVG">⇩ SVG</button>
+          </div>
+          <div id="chart-status" class="chart-status" role="status" aria-live="polite">برای ساخت نمودار، نوع تحلیل را انتخاب کنید.</div>
+          <div id="analysis-chart-container" class="analysis-chart-container" hidden>
+            <div class="chart-heading"><strong id="analysis-chart-title">نمودار تحلیل</strong><span id="analysis-chart-count"></span></div>
+            <div id="analysis-chart" class="analysis-chart" aria-label="نمودار تولیدشده"></div>
+          </div>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    window.QAZVIN_DATA_URLS = {
+      roads: "{% url 'webgis:data' 'roads' %}",
+      bus: "{% url 'webgis:data' 'bus' %}",
+      taxi: "{% url 'webgis:data' 'taxi' %}",
+      fuel: "{% url 'webgis:data' 'fuel' %}",
+      problems: "{% url 'webgis:data' 'problems' %}",
+      hospitals: "{% url 'webgis:data' 'hospitals' %}",
+      landuse: "{% url 'webgis:data' 'landuse' %}",
+      odPriority: "{% url 'webgis:data' 'od-priority' %}",
+      neighborhoods: "{% url 'webgis:data' 'neighborhoods' %}"
+    };
+    window.QAZVIN_EXCEL_URL = "{% url 'webgis:export_excel' %}";
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.fullscreen@1.6.0/Control.FullScreen.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script src="{% static 'webgis/js/digital-twin-engine.js' %}"></script>
+  <script src="{% static 'webgis/js/app.bundle.js' %}?v=4"></script>
+  <script src="{% static 'webgis/js/src/ui-layout-fixes.js' %}"></script>
+  <script src="{% static 'webgis/js/reports.js' %}"></script>
+</body>
+</html>
