@@ -7,7 +7,6 @@ reporting together in one browser-based workspace.
 
 [Read this guide in Persian](README.fa.md)
 
-![Application overview](screenshots/overview.jpg)
 
 ## Key capabilities
 
